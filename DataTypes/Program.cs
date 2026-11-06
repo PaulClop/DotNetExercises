@@ -84,28 +84,75 @@
             // ### Problem 3   | ----------------------------------------
             // _________________
 
-            int n;
-            Console.Write("n = ");
-            if (!int.TryParse(Console.ReadLine(), out n))
+            //int n;
+            //Console.Write("n = ");
+            //if (!int.TryParse(Console.ReadLine(), out n))
+            //{
+            //    n = 0;
+            //}
+
+            //Console.WriteLine($"{n:b}");
+
+            //if (n == 0)
+            //{
+            //    Console.Write("0");
+            //    return;
+            //}
+
+            //if (n < 0)
+            //{
+            //    Console.Write("-");
+            //    n = -n; // Note: int.MinValue would overflow here
+            //}
+
+            //print_int_to_byte(n);
+
+            // -----------------
+            // ### Problem 4   | ----------------------------------------
+            // _________________
+
+            int x;
+            Console.Write("x = ");
+            if (!int.TryParse(Console.ReadLine(), out x))
             {
-                n = 0;
+                x = 0;
             }
 
-            Console.WriteLine($"{n:b}");
-
-            if (n == 0)
+            int y;
+            Console.Write("y = ");
+            if (!int.TryParse(Console.ReadLine(), out y))
             {
-                Console.Write("0");
+                y = 0;
+            }
+
+            if (x == 0 && y == 0)
+            {
+                Console.Write($"Punctul ({x}, {y}) se afla in origine.");
                 return;
             }
 
-            if (n < 0)
+            if (x < 0)
             {
-                Console.Write("-");
-                n = -n; // Note: int.MinValue would overflow here
+                if (y < 0)
+                {
+                    Console.Write($"Punctul ({x}, {y}) se afla in cadranul 3.");
+                    return;
+                }
+                else
+                {
+                    Console.Write($"Punctul ({x}, {y}) se afla in cadranul 2.");
+                    return;
+                }
             }
 
-            print_int_to_byte(n);
+            if (y < 0)
+            {
+                Console.Write($"Punctul ({x}, {y}) se afla in cadranul 4.");
+                return;
+            }
+
+            Console.Write($"Punctul ({x}, {y}) se afla in cadranul 1.");
+            return;
         }
 
         public static void print_int_to_byte(int n)
